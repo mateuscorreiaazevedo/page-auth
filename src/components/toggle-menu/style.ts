@@ -20,6 +20,7 @@ export const MenuContainer = styled.div`
   border-left: none;
   background: ${transparentize(0.35, '#3498d8')};
   transition: 400ms;
+  box-shadow: inset 0px 6px 10px rgba(255,255,255, 0.8);
 `
 
 export const NavOptions = styled.nav`
