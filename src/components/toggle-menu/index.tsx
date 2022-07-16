@@ -14,7 +14,7 @@ export const ToggleMenu = () => {
       {isOpen && (
         <S.NavOptions>
           <SwitchTheme />
-          <S.SocialLink href='https://www.github.com/mateuscorreiaazevedo/' target='_blank'>
+          <S.SocialLink href='https://www.github.com/mateuscorreiaazevedo/page-auth' target='_blank'>
             <FaGithub/>
           </S.SocialLink>
           <S.SocialLink href='https://www.instagram.com/mateuscorreiaazevedo/' target='_blank'>
