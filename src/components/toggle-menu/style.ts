@@ -11,14 +11,15 @@ export const MenuContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-left: 5px;
-  top: 3rem;
+  top: 6rem;
   left: 0;
   width: ${({ isOpen }: Props) => isOpen ? '10rem' : '2.5rem'};
   height: 80px;
   border-radius: 0 20px  20px 0;
   border: 1.2px solid #fff;
   border-left: none;
-  background: ${transparentize(0.35, '#3498d8')};
+  background: ${transparentize(0.35, '#8DEEF9')};
+  backdrop-filter: blur(2px);
   transition: 400ms;
   box-shadow: inset 0px 6px 10px rgba(255,255,255, 0.8);
 `
