@@ -23,6 +23,26 @@ export const MenuContainer = styled.div`
   box-shadow: inset 0px 6px 10px rgba(255,255,255, 0.8);
 `
 
+export const ButtonBox = styled.div`
+  &:hover {
+    span {
+      display: block;
+    }
+  }
+  span {
+    font-size: .8rem;
+    display: none;
+    position: absolute;
+    top: 80px;
+    animation: view-name 800ms;
+    @keyframes view-name {
+      from {
+        opacity: 0%;
+      }
+    }
+  }
+`
+
 export const NavOptions = styled.nav`
   display: flex;
   gap: 8px;
@@ -41,6 +61,23 @@ export const SocialLink = styled.a`
   font-size: 25px;
   transition: 400ms;
   color: ${({ theme }) => theme.colors.text};
+  &:hover {
+    span {
+      display: block;
+    }
+  }
+  span {
+    font-size: .8rem;
+    display: none;
+    position: absolute;
+    top: 80px;
+    animation: view-name 800ms;
+    @keyframes view-name {
+      from {
+        opacity: 0%;
+      }
+    }
+  }
 `
 
 export const ToggleContainer = styled.div`
