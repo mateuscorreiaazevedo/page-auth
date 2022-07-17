@@ -18,7 +18,7 @@ export const ToggleMenu = () => {
           <S.ButtonBox>
             <SwitchTheme />
             <span>
-              {!title === 'light' ? 'Switch to light mode' : 'Switch to dark mode'}
+              {title !== 'light' ? 'Switch to light mode' : 'Switch to dark mode'}
             </span>
           </S.ButtonBox>
           <S.SocialLink href='https://www.github.com/mateuscorreiaazevedo/page-auth' target='_blank'>
@@ -27,7 +27,7 @@ export const ToggleMenu = () => {
           </S.SocialLink>
           <S.SocialLink href='https://www.instagram.com/mateuscorreiaazevedo/' target='_blank'>
             <FaInstagram/>
-            <span>Istagram</span>
+            <span>Instagram</span>
           </S.SocialLink>
           <S.SocialLink href='https://www.linkedin.com/in/mateuscorreiaazevedo' target='_blank'>
             <FaLinkedin/>
