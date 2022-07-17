@@ -35,6 +35,7 @@ export const ButtonBox = styled.div`
     display: none;
     position: absolute;
     top: 80px;
+    left: 14px;
     animation: view-name 800ms;
     @keyframes view-name {
       from {
