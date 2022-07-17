@@ -1,10 +1,11 @@
+import * as S from './style'
 import React from 'react'
-import images from '../../assets/images/imports'
+import { ImageSlider } from '../../components/slider'
 
 export const LoginPage = () => {
   return (
-    <main>
-      <img src={images.peopleOne} alt="pessoa sentada com violão no colo e fazendo sinal de paz e amor" />
-    </main>
+    <S.Main>
+      <ImageSlider peoplesSlider/>
+    </S.Main>
   )
 }
