@@ -1,6 +1,6 @@
+import images from '../../assets/images/imports'
 import Slider from 'react-slick'
 import React from 'react'
-import images from '../../assets/images/imports'
 
 const HiddenArrows = ({ style }: any) => <div style={{ display: 'none' }}/>
 
@@ -13,8 +13,8 @@ export const ImageSlider = ({ peoplesSlider = false }: Props) => {
     dots: false,
     infinite: true,
     autoplay: true,
-    speed: 1500,
-    autoplaySpeed: 1000,
+    speed: 2000,
+    autoplaySpeed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <HiddenArrows/>,
@@ -25,9 +25,6 @@ export const ImageSlider = ({ peoplesSlider = false }: Props) => {
       <Slider {...configSlider}>
         <div>
           <img src={images.peopleOne} alt="people with acoustic guitar" />
-        </div>
-        <div>
-          <img src={images.peopleTwo} alt="people with books" />
         </div>
         <div>
           <img src={images.peopleThree} alt="people sending messages" />
