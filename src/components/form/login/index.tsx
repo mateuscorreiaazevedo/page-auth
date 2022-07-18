@@ -1,15 +1,12 @@
 import { FieldInput } from '../../ui/input'
+import * as S from './style'
 import React from 'react'
-import styled from 'styled-components'
 
-const ContainerForm = styled.div`
-`
 export const LoginForm = () => {
   return (
-    <ContainerForm>
-      <form>
-        <FieldInput type='email' placeholder='Enter email' nameId='email' />
-      </form>
-    </ContainerForm>
+    <S.Form>
+      <FieldInput type='email' placeholder='Enter with your email' nameId='email' />
+      <FieldInput type='password' placeholder='Password' nameId='password' />
+    </S.Form>
   )
 }

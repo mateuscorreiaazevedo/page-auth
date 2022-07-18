@@ -4,7 +4,7 @@ export const Main = styled.main`
   display: flex;
 `
 
-export const ContainerImages = styled.div`
+export const ContainerImages = styled.section`
   background: ${p => p.theme.colors.primary};
   width: 40%;
   margin: 10px;
@@ -25,17 +25,24 @@ export const ContainerImages = styled.div`
   }
 `
 
-export const ContainerForm = styled.div`
+export const ContainerInfo = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
   margin-right: 20px;
   margin-top: 60px;
   flex-grow: 1;
-    p {
-    font-size: .8rem;
-    text-align: end;
-      a {
-        text-decoration: none;
-        font-weight: bold;
-        color: ${({ theme }) => theme.colors.primary};
-      }
-    }
+`
+export const SignupLink = styled.p`
+  font-size: .8rem;
+  text-align: end;
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.primary};
+  }
+`
+export const HelloMessage = styled.div`
+  align-self: center;
+  text-align: center;
 `
