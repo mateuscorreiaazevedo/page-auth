@@ -1,6 +1,7 @@
 import images from '../../assets/images/imports'
 import Slider from 'react-slick'
 import React from 'react'
+import { CentralizeImage } from './style'
 
 const HiddenArrows = ({ style }: any) => <div style={{ display: 'none' }}/>
 
@@ -23,24 +24,24 @@ export const ImageSlider = ({ peoplesSlider = false }: Props) => {
   if (peoplesSlider) {
     return (
       <Slider {...configSlider}>
-        <div>
+        <CentralizeImage centralize>
           <img src={images.peopleOne} alt="people with acoustic guitar" />
-        </div>
-        <div>
+        </CentralizeImage>
+        <CentralizeImage centralize>
           <img src={images.peopleThree} alt="people sending messages" />
-        </div>
+        </CentralizeImage>
       </Slider>
     )
   }
 
   return (
     <Slider {...configSlider}>
-      <div>
+      <CentralizeImage>
         <img src={images.dogRobot} alt="dog robot" />
-      </div>
-      <div>
+      </CentralizeImage>
+      <CentralizeImage>
         <img src={images.helloRobot} alt="cute robot waving" />
-      </div>
+      </CentralizeImage>
     </Slider>
   )
 }
