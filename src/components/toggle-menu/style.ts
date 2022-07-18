@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 type Props ={
   isOpen: boolean
+  position: string
 }
 
 export const MenuContainer = styled.div`
@@ -12,7 +13,7 @@ export const MenuContainer = styled.div`
   justify-content: space-between;
   padding-left: 5px;
   top: 80px;
-  left: 10px;
+  left: ${({ position }: Props) => `${position}px`};
   width: ${({ isOpen }: Props) => isOpen ? '10rem' : '2.5rem'};
   height: 80px;
   border-radius: 0 20px  20px 0;

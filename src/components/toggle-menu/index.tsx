@@ -5,14 +5,18 @@ import * as S from './style'
 import React from 'react'
 import { ThemeContext } from 'styled-components'
 
-export const ToggleMenu = () => {
+type PropsMenu = {
+  positionLeft: string
+}
+
+export const ToggleMenu = ({ positionLeft }: PropsMenu) => {
   const [isOpen, setIsOpen] = React.useState(false)
   const { title } = React.useContext(ThemeContext)
 
   const openMenu = () => setIsOpen(prev => !prev)
 
   return (
-    <S.MenuContainer isOpen={isOpen}>
+    <S.MenuContainer isOpen={isOpen} position={positionLeft} >
       {isOpen && (
         <S.NavOptions>
           <S.ButtonBox>
