@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const Main = styled.main`
   display: flex;
   justify-content: space-between;
-  align-items: center;
 `
+
 export const ContainerImages = styled.div`
   background: ${p => p.theme.colors.primary};
   width: 40%;
@@ -23,5 +23,18 @@ export const ContainerImages = styled.div`
   }
   @media (max-width: 790px) {
     display: none;
+  }
+`
+
+export const ContainerForm = styled.div`
+  margin-right: 20px;
+  margin-top: 60px;
+  p {
+    font-size: .8rem;
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      color: ${({ theme }) => theme.colors.primary};
+    }
   }
 `

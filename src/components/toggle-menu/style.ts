@@ -11,8 +11,8 @@ export const MenuContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-left: 5px;
-  top: 6rem;
-  left: 0;
+  top: 80px;
+  left: 10px;
   width: ${({ isOpen }: Props) => isOpen ? '10rem' : '2.5rem'};
   height: 80px;
   border-radius: 0 20px  20px 0;

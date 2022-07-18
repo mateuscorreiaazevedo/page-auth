@@ -6,15 +6,18 @@ import 'slick-carousel/slick/slick-theme.css'
 import { ToggleMenu } from '../toggle-menu'
 import 'slick-carousel/slick/slick.css'
 import React from 'react'
+import { Container } from '../ui/container'
 
 function App () {
   return (
     <ContextThemeProvider>
-      <BrowserRouter>
-        <AppRoutes/>
-        <ToggleMenu/>
-        <GlobalStyle />
-      </BrowserRouter>
+      <Container>
+        <BrowserRouter>
+          <AppRoutes/>
+          <ToggleMenu/>
+          <GlobalStyle />
+        </BrowserRouter>
+      </Container>
     </ContextThemeProvider>
   )
 }
