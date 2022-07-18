@@ -20,7 +20,7 @@ export const FieldInput: React.FC<Props> = ({ type = 'text', nameId, handleChang
       id={nameId}
       onChange={handleChange}
       placeholder={placeholder}
-      shadow={transparentize(0.9, colors.text)}
+      shadow={transparentize(0.8, colors.text)}
       required
     />
   )

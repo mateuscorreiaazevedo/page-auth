@@ -6,12 +6,13 @@ type Shadow ={
 
 export const Input = styled.input`
   width: 340px;
-  height: 42px;
+  height: 52px;
   padding: 8px 15px;
   font-size: 1rem;
   border-radius: 12px;
   border: none;
   background: ${({ theme }) => theme.colors.inputBackground};
+  color: ${({ theme }) => theme.colors.text};
   transition: 400ms;
   
   &:focus {

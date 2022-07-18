@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Main = styled.main`
   display: flex;
-  justify-content: space-between;
 `
 
 export const ContainerImages = styled.div`
@@ -29,12 +28,14 @@ export const ContainerImages = styled.div`
 export const ContainerForm = styled.div`
   margin-right: 20px;
   margin-top: 60px;
-  p {
+  flex-grow: 1;
+    p {
     font-size: .8rem;
-    a {
-      text-decoration: none;
-      font-weight: bold;
-      color: ${({ theme }) => theme.colors.primary};
+    text-align: end;
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        color: ${({ theme }) => theme.colors.primary};
+      }
     }
-  }
 `
