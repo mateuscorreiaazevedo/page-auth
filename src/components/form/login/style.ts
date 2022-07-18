@@ -7,3 +7,13 @@ export const Form = styled.form`
   align-items: center;
   gap: 15px;
 `
+export const BoxInput = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+`
+export const ButtonViewPass = styled.div`
+  position: absolute;
+  right: 20px;
+  color: #999;
+`
