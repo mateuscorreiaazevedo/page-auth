@@ -2,6 +2,7 @@ import { FieldInput } from '../../ui/input'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import * as S from './style'
 import React from 'react'
+import { ButtonSubmit } from '../../ui/button'
 
 const initialValues = {
   email: '',
@@ -28,6 +29,8 @@ export const LoginForm = () => {
     setViewPass(prev => !prev)
   }
 
+  console.log(values)
+
   return (
     <S.Form>
       <S.BoxInput>
@@ -49,9 +52,9 @@ export const LoginForm = () => {
           {!viewPass ? <BsEyeSlash/> : <BsEye/>}
         </S.ButtonViewPass>
       </S.BoxInput>
-      <>
-        {values.password.length < 6 && (<p>a senha deve ter no mínimo 6 caracteres</p>)}
-      </>
+      <S.BoxInput>
+        <ButtonSubmit text='Sign In' />
+      </S.BoxInput>
     </S.Form>
   )
 }
