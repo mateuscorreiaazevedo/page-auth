@@ -11,6 +11,7 @@ export const Input = styled.input`
   font-size: 1rem;
   border-radius: 12px;
   border: none;
+  font-family: 'Montserrat', sans-serif;
   background: ${({ theme }) => theme.colors.inputBackground};
   color: ${({ theme }) => theme.colors.text};
   transition: 400ms;
