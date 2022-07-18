@@ -16,4 +16,7 @@ export const ButtonViewPass = styled.div`
   position: absolute;
   right: 20px;
   color: #999;
+  svg {
+    cursor: pointer;
+  }
 `
