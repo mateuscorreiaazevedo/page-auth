@@ -7,16 +7,17 @@ import { ThemeContext } from 'styled-components'
 
 type PropsMenu = {
   positionLeft: string
+  className?: string
 }
 
-export const ToggleMenu = ({ positionLeft }: PropsMenu) => {
+export const ToggleMenu = ({ positionLeft, className }: PropsMenu) => {
   const [isOpen, setIsOpen] = React.useState(false)
   const { title } = React.useContext(ThemeContext)
 
   const openMenu = () => setIsOpen(prev => !prev)
 
   return (
-    <S.MenuContainer isOpen={isOpen} position={positionLeft} >
+    <S.MenuContainer isOpen={isOpen} position={positionLeft} className={className} >
       {isOpen && (
         <S.NavOptions>
           <S.ButtonBox>
