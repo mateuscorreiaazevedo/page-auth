@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 type Props ={
   isOpen: boolean
+  position: string
 }
 
 export const MenuContainer = styled.div`
@@ -11,8 +12,8 @@ export const MenuContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-left: 5px;
-  top: 6rem;
-  left: 0;
+  top: 80px;
+  left: ${({ position }: Props) => `${position}px`};
   width: ${({ isOpen }: Props) => isOpen ? '10rem' : '2.5rem'};
   height: 80px;
   border-radius: 0 20px  20px 0;
@@ -35,6 +36,7 @@ export const ButtonBox = styled.div`
     display: none;
     position: absolute;
     top: 80px;
+    left: 14px;
     animation: view-name 800ms;
     @keyframes view-name {
       from {
