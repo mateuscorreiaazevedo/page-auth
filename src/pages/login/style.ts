@@ -45,4 +45,12 @@ export const SignupLink = styled.p`
 export const HelloMessage = styled.div`
   align-self: center;
   text-align: center;
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+  p {
+    letter-spacing: 0.15rem;
+    font-weight: 200;
+  }
 `
