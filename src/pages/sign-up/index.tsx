@@ -1,10 +1,10 @@
+import { SignupForm } from '../../components/form/sign-up'
+import { ToggleMenu } from '../../components/toggle-menu'
+import { ImageSlider } from '../../components/slider'
+import { Footer } from '../../components/footer'
+import { Link } from 'react-router-dom'
 import * as S from './style'
 import React from 'react'
-import { ImageSlider } from '../../components/slider'
-import { Link } from 'react-router-dom'
-import { ToggleMenu } from '../../components/toggle-menu'
-import { LoginForm } from '../../components/form/login'
-import { Footer } from '../../components/footer'
 
 export const SignupPage = () => {
   return (
@@ -16,7 +16,7 @@ export const SignupPage = () => {
           <p>Fill in the fields below to register</p>
         </S.HelloMessage>
         <div>
-          <LoginForm />
+          <SignupForm />
         </div>
         <div>
           <S.SigninLink>

@@ -1,8 +1,8 @@
-import { FieldInput } from '../../ui/input'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
+import { ButtonSubmit } from '../../ui/button'
+import { FieldInput } from '../../ui/input'
 import * as S from './style'
 import React from 'react'
-import { ButtonSubmit } from '../../ui/button'
 
 const initialValues = {
   email: '',
