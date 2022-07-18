@@ -33,14 +33,14 @@ export const ContainerImages = styled.section`
 export const ContainerInfo = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: 5rem;
   margin-right: 20px;
   margin-top: 60px;
   flex-grow: 1;
 `
-export const SignupLink = styled.p`
+export const SigninLink = styled.p`
   font-size: .8rem;
-  text-align: end;
+  text-align: center;
   a {
     text-decoration: none;
     font-weight: bold;
@@ -57,25 +57,7 @@ export const HelloMessage = styled.div`
   }
   p {
     letter-spacing: 0.15rem;
+    font-size: .85rem;
     font-weight: 200;
-  }
-`
-export const Footer = styled.footer`
-  margin-top: 180px;
-  display: flex;
-  align-self: center;
-  gap: 15px;
-  font-size: 1rem;
-  color: #666;
-  a {
-    text-decoration: none;
-    color: ${props => props.theme.colors.primary};
-    font-weight: bold;
-  }
-  @media (max-width: 500px) {
-    margin-top: 0;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 15px;
   }
 `
