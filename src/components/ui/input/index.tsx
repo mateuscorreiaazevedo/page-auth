@@ -6,7 +6,7 @@ import React from 'react'
 type Props = {
   type: string
   nameId?: string
-  handleChange?: () => void
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   placeholder: string
 }
 
