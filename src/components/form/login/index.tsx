@@ -20,7 +20,7 @@ export const LoginForm = () => {
       <S.BoxInput>
         <FieldInput type={typePass} placeholder='Password' nameId='password' />
         <S.ButtonViewPass onClick={handleViewPassword}>
-          {viewPass ? <BsEyeSlash/> : <BsEye/>}
+          {!viewPass ? <BsEyeSlash/> : <BsEye/>}
         </S.ButtonViewPass>
       </S.BoxInput>
     </S.Form>
