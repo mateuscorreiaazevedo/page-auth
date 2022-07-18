@@ -8,8 +8,8 @@ import { LoginForm } from '../../components/form/login'
 export const LoginPage = () => {
   return (
     <S.Main>
+      <ToggleMenu positionLeft='10' className='menu-side'/>
       <S.ContainerImages>
-        <ToggleMenu positionLeft='10'/>
         <div>
           <ImageSlider peoplesSlider/>
         </div>
@@ -27,6 +27,12 @@ export const LoginPage = () => {
           <div>
             <LoginForm />
           </div>
+          <S.Footer>
+            <p>Copyright® - 2022</p>
+            <p>
+              developed by: <a href="mailto:mateuscorreiaazevedo@gmail.com">Mateus Correia Azevedo</a>
+            </p>
+          </S.Footer>
       </S.ContainerInfo>
     </S.Main>
   )

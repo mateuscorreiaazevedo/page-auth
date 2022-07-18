@@ -2,6 +2,11 @@ import styled from 'styled-components'
 
 export const Main = styled.main`
   display: flex;
+  @media (max-width: 790px) {
+    .menu-side {
+      left: 0;
+    }
+  }
 `
 
 export const ContainerImages = styled.section`
@@ -45,6 +50,7 @@ export const SignupLink = styled.p`
 export const HelloMessage = styled.div`
   align-self: center;
   text-align: center;
+  transition: 400ms;
   h1 {
     font-size: 2rem;
     margin-bottom: 25px;
@@ -52,5 +58,24 @@ export const HelloMessage = styled.div`
   p {
     letter-spacing: 0.15rem;
     font-weight: 200;
+  }
+`
+export const Footer = styled.footer`
+  margin-top: 180px;
+  display: flex;
+  align-self: center;
+  gap: 15px;
+  font-size: 1rem;
+  color: #666;
+  a {
+    text-decoration: none;
+    color: ${props => props.theme.colors.primary};
+    font-weight: bold;
+  }
+  @media (max-width: 500px) {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
   }
 `
