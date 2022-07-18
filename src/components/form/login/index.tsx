@@ -3,9 +3,25 @@ import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import * as S from './style'
 import React from 'react'
 
+const initialValues = {
+  email: '',
+  password: ''
+}
+
 export const LoginForm = () => {
-  const [viewPass, setViewPass] = React.useState(false)
   const [typePass, setTypePass] = React.useState('password')
+  const [viewPass, setViewPass] = React.useState(false)
+  const [values, setValues] = React.useState(initialValues)
+
+  const setValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setValues(prev => {
+      return {
+        ...prev,
+        [name]: value
+      }
+    })
+  }
 
   const handleViewPassword = () => {
     setTypePass(typePass === 'password' ? 'text' : 'password')
@@ -15,14 +31,27 @@ export const LoginForm = () => {
   return (
     <S.Form>
       <S.BoxInput>
-        <FieldInput type='email' placeholder='Enter with your email' nameId='email' />
+        <FieldInput
+          type='email'
+          placeholder='Enter with your email'
+          nameId='email'
+          handleChange={setValue}
+          />
       </S.BoxInput>
       <S.BoxInput>
-        <FieldInput type={typePass} placeholder='Password' nameId='password' />
+        <FieldInput
+          type={typePass}
+          placeholder='Password'
+          nameId='password'
+          handleChange={setValue}
+        />
         <S.ButtonViewPass onClick={handleViewPassword}>
           {!viewPass ? <BsEyeSlash/> : <BsEye/>}
         </S.ButtonViewPass>
       </S.BoxInput>
+      <>
+        {values.password.length < 6 && (<p>a senha deve ter no mínimo 6 caracteres</p>)}
+      </>
     </S.Form>
   )
 }
