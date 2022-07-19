@@ -29,8 +29,6 @@ export const LoginForm = () => {
     setViewPass(prev => !prev)
   }
 
-  console.log(values)
-
   return (
     <S.Form>
       <S.BoxInput>

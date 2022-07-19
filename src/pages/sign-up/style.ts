@@ -4,7 +4,7 @@ export const Main = styled.main`
   display: flex;
   @media (min-width: 1900px) {
     .side-menu {
-      left: -33.5%;
+      left: -33.3%;
     }
   }
 `
