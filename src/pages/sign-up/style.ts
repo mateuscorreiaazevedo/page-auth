@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 export const Main = styled.main`
   display: flex;
-  @media (max-width: 790px) {
-    .menu-side {
-      left: 0;
+  @media (min-width: 1900px) {
+    .side-menu {
+      left: -33.5%;
     }
   }
 `

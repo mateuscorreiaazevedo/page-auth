@@ -9,7 +9,7 @@ import React from 'react'
 export const SignupPage = () => {
   return (
     <S.Main>
-      <ToggleMenu positionLeft='0'/>
+      <ToggleMenu positionLeft='0' className='side-menu'/>
       <S.ContainerInfo>
         <S.HelloMessage>
           <h1>Welcome!</h1>
