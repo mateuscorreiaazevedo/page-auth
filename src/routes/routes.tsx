@@ -1,17 +1,15 @@
-import { Route, Routes } from 'react-router-dom'
-import { SignupPage } from '../pages/sign-up'
-import { LoginPage } from '../pages/login'
-import { HomePage } from '../pages/home'
-import { Redirect } from './redirect'
+import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
+import { PrivateRoutes } from './private'
+import { PublicRoutes } from './public'
 
 export const AppRoutes = () => {
+  const [isAuth] = React.useState(false)
   return (
-    <Routes>
-      <Route path='/home' element={<HomePage/>} />
-      <Route path='/login' element={<LoginPage/>} />
-      <Route path='/signup' element={<SignupPage/>} />
-      <Route path='/*' element={<Redirect/>} />
-    </Routes>
+    <BrowserRouter>
+      <React.Suspense fallback={<p>Carregando...</p>}>
+        {isAuth ? <PrivateRoutes/> : <PublicRoutes/>}
+      </React.Suspense>
+    </BrowserRouter>
   )
 }

@@ -1,41 +1,40 @@
+import { useSetUsers } from '../../../hooks/useSetUsers'
+import images from '../../../assets/images/imports'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
+import { UserProps } from '../../../types/user'
+import { ButtonSubmit } from '../../ui/button'
 import { FieldInput } from '../../ui/input/'
 import * as S from './style'
 import React from 'react'
-import { ButtonSubmit } from '../../ui/button'
-import { UserProps } from '../../../types/user'
-import { hash } from '../../../types/hashId'
 
 const initialValue: UserProps = {
-  email: '',
   fullName: '',
+  email: '',
   password: '',
-  id: ''
+  id: 0,
+  token: '',
+  imageProfile: images.userIcon
 }
 
 export const SignupForm = () => {
-  const [users] = React.useState<UserProps[]>(() => {
-    const storageUser = localStorage.getItem('users')
-    const initialArray: UserProps[] = []
-
-    if (storageUser) {
-      return JSON.parse(storageUser)
-    } else {
-      return initialArray
-    }
-  })
-  const [userValue, setUserValue] = React.useState<UserProps>(initialValue)
   const [typePass, setTypePass] = React.useState('password')
   const [viewPass, setViewPass] = React.useState(false)
+  const [user, setUser] = React.useState<UserProps>(initialValue)
+  const {
+    handleSubmit,
+    loadStorage,
+    refresh,
+    errorMessage
+  } = useSetUsers({ initialValue, setUser, user })
 
   const handleViewPassword = () => {
     setTypePass(typePass === 'password' ? 'text' : 'password')
     setViewPass(prev => !prev)
   }
 
-  const setUser = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const setUserInfo = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
-    setUserValue(prev => {
+    setUser(prev => {
       return {
         ...prev,
         [name]: value
@@ -43,17 +42,10 @@ export const SignupForm = () => {
     })
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const id = await hash()
-    localStorage.setItem('users', JSON.stringify([
-      ...users,
-      { ...userValue, id }
-    ]))
-
-    setUserValue(initialValue)
-  }
+  React.useEffect(() => {
+    loadStorage()
+    setViewPass(false)
+  }, [refresh])
 
   return (
     <S.Form onSubmit={handleSubmit}>
@@ -62,8 +54,8 @@ export const SignupForm = () => {
           type='text'
           placeholder='Full Name'
           nameId='fullName'
-          handleChange={setUser}
-          defValue={userValue.fullName}
+          handleChange={setUserInfo}
+          defValue={user.fullName}
         />
       </S.ContainerInput>
       <S.ContainerInput>
@@ -71,8 +63,8 @@ export const SignupForm = () => {
           type='email'
           placeholder='Register your email'
           nameId='email'
-          handleChange={setUser}
-          defValue={userValue.email}
+          handleChange={setUserInfo}
+          defValue={user.email}
         />
       </S.ContainerInput>
       <S.ContainerInput>
@@ -80,12 +72,17 @@ export const SignupForm = () => {
           type={typePass}
           placeholder='Enter a password'
           nameId='password'
-          handleChange={setUser}
-          defValue={userValue.password}
+          handleChange={setUserInfo}
+          defValue={user.password}
         />
         <S.ButtonViewPass onClick={handleViewPassword}>
           {!viewPass ? <BsEyeSlash /> : <BsEye/>}
         </S.ButtonViewPass>
+      </S.ContainerInput>
+      <S.ContainerInput>
+        {errorMessage && (
+          <p>A senha deve conter no mínimo 6 caracteres</p>
+        )}
       </S.ContainerInput>
       <ButtonSubmit text='Create your account' />
     </S.Form>

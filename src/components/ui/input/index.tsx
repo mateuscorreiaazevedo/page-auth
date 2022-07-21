@@ -17,7 +17,7 @@ export const FieldInput: React.FC<Props> = (props) => {
 
   return (
     <Input
-      defaultValue={defValue}
+      value={defValue}
       type={type}
       name={nameId}
       id={nameId}
