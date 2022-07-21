@@ -20,16 +20,21 @@ export const useSetUsers = ({ user, setUser, initialValue }: Response) => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const token = await hash()
-    const id = (users.length + 1)
+    // const token = await hash()
+    // const id = (users.length + 1)
 
-    if (user.password.length > 5) {
-      setStorage('users', [...users, { ...user, id, token }])
-      setUser(initialValue)
-      setRefresh(prev => !prev)
-      navigate('/login')
-    } else {
-      setErrorMessage(prev => !prev)
+    // if (user.password.length > 5) {
+    //   setStorage('users', [...users, { ...user, id, token }])
+    //   setUser(initialValue)
+    //   setRefresh(prev => !prev)
+    //   navigate('/login')
+    // } else {
+    //   setErrorMessage(prev => !prev)
+    // }
+    try {
+
+    } catch (err) {
+      alert(err.message)
     }
   }
 

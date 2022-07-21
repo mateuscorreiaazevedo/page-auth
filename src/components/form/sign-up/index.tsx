@@ -1,35 +1,32 @@
-import { useSetUsers } from '../../../hooks/useSetUsers'
-import images from '../../../assets/images/imports'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
-import { UserProps } from '../../../types/user'
 import { ButtonSubmit } from '../../ui/button'
 import { FieldInput } from '../../ui/input/'
 import * as S from './style'
 import React from 'react'
+import { dbUsers, User } from '../../../utils/db-users'
+import { useNavigate } from 'react-router-dom'
 
-const initialValue: UserProps = {
-  fullName: '',
+const initialValue: User = {
+  fullname: '',
   email: '',
-  password: '',
-  id: 0,
-  token: '',
-  imageProfile: images.userIcon
+  password: ''
 }
 
 export const SignupForm = () => {
-  const [typePass, setTypePass] = React.useState('password')
-  const [viewPass, setViewPass] = React.useState(false)
-  const [user, setUser] = React.useState<UserProps>(initialValue)
-  const {
-    handleSubmit,
-    loadStorage,
-    refresh,
-    errorMessage
-  } = useSetUsers({ initialValue, setUser, user })
+  const [viewPass, setViewPass] = React.useState<boolean>(false)
+  const [user, setUser] = React.useState<User>(initialValue)
+  const [errorMessage, setErrorMessage] = React.useState<string>()
+  const navigate = useNavigate()
 
-  const handleViewPassword = () => {
-    setTypePass(typePass === 'password' ? 'text' : 'password')
-    setViewPass(prev => !prev)
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    try {
+      await dbUsers.create(user)
+      navigate('/')
+    } catch (err) {
+      setErrorMessage((err as any).message)
+    }
   }
 
   const setUserInfo = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,46 +39,38 @@ export const SignupForm = () => {
     })
   }
 
-  React.useEffect(() => {
-    loadStorage()
-    setViewPass(false)
-  }, [refresh])
-
   return (
     <S.Form onSubmit={handleSubmit}>
       <S.ContainerInput>
         <FieldInput
           type='text'
           placeholder='Full Name'
-          nameId='fullName'
+          name='fullname'
           handleChange={setUserInfo}
-          defValue={user.fullName}
         />
       </S.ContainerInput>
       <S.ContainerInput>
         <FieldInput
           type='email'
           placeholder='Register your email'
-          nameId='email'
+          name='email'
           handleChange={setUserInfo}
-          defValue={user.email}
         />
       </S.ContainerInput>
       <S.ContainerInput>
         <FieldInput
-          type={typePass}
+          type={viewPass ? 'text' : 'password'}
           placeholder='Enter a password'
-          nameId='password'
+          name='password'
           handleChange={setUserInfo}
-          defValue={user.password}
         />
-        <S.ButtonViewPass onClick={handleViewPassword}>
+        <S.ButtonViewPass onClick={() => setViewPass(prev => !prev)}>
           {!viewPass ? <BsEyeSlash /> : <BsEye/>}
         </S.ButtonViewPass>
       </S.ContainerInput>
       <S.ContainerInput>
         {errorMessage && (
-          <p>A senha deve conter no mínimo 6 caracteres</p>
+          <p>{errorMessage}</p>
         )}
       </S.ContainerInput>
       <ButtonSubmit text='Create your account' />
