@@ -3,25 +3,25 @@ import { transparentize } from 'polished'
 import { Input } from './style'
 import React from 'react'
 
-type Props = {
-  type: string
-  nameId?: string
+type Props = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  placeholder: string
+  name: string
+  ref?: React.RefObject<HTMLInputElement>
+  id?: string
+  shadow?: string
 }
 
-export const FieldInput: React.FC<Props> = ({ type = 'text', nameId, handleChange, placeholder }) => {
+export const FieldInput = (props: Props) => {
+  const { name, id, handleChange, ref, ...rest } = props
   const { colors } = React.useContext(ThemeContext)
 
   return (
     <Input
-      type={type}
-      name={nameId}
-      id={nameId}
+      name={name}
+      id={id || name}
       onChange={handleChange}
-      placeholder={placeholder}
       shadow={transparentize(0.8, colors.text)}
-      required
+      {...rest}
     />
   )
 }

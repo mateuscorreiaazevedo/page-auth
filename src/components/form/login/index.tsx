@@ -10,11 +10,11 @@ const initialValues = {
 }
 
 export const LoginForm = () => {
-  const [typePass, setTypePass] = React.useState('password')
-  const [viewPass, setViewPass] = React.useState(false)
+  const [viewPass, setViewPass] = React.useState<boolean>(false)
   const [values, setValues] = React.useState(initialValues)
 
   const setValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(values)
     const { name, value } = e.target
     setValues(prev => {
       return {
@@ -24,31 +24,24 @@ export const LoginForm = () => {
     })
   }
 
-  const handleViewPassword = () => {
-    setTypePass(typePass === 'password' ? 'text' : 'password')
-    setViewPass(prev => !prev)
-  }
-
-  console.log(values)
-
   return (
     <S.Form>
       <S.BoxInput>
         <FieldInput
           type='email'
           placeholder='Enter with your email'
-          nameId='email'
+          name='email'
           handleChange={setValue}
           />
       </S.BoxInput>
       <S.BoxInput>
         <FieldInput
-          type={typePass}
+          type={viewPass ? 'text' : 'password'}
           placeholder='Password'
-          nameId='password'
+          name='password'
           handleChange={setValue}
         />
-        <S.ButtonViewPass onClick={handleViewPassword}>
+        <S.ButtonViewPass onClick={() => setViewPass(prev => !prev)}>
           {!viewPass ? <BsEyeSlash/> : <BsEye/>}
         </S.ButtonViewPass>
       </S.BoxInput>
